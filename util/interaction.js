@@ -1,6 +1,8 @@
 const keys = require('../keys')
 const fs = require('fs').promises
 
+const threshold = 70
+
 async function loginUser(page) {
     await page.goto('https://twitter.com/login');
     console.log('Navigating to login')
@@ -78,7 +80,7 @@ async function addProspects(users, browser, page, visited) {
             }
         }
         const popScore = (followers / following) * 100
-        if(popScore <= 70) {
+        if(popScore <= threshold) {
             console.log('adding https://twitter.com' + url)
         }
         await userPage.waitFor(1000)
