@@ -12,7 +12,8 @@ Create a ```keys.js``` with this template:
 module.exports = { 
     user: 'TWITTER_USERNAME', 
     password: 'TWITTER_PASSWORD',
-    agent: 'USER_AGENT'
+    agent: 'USER_AGENT',
+    browserPath: 'BROWSER_EXECUTABLE_PATH'
 }
 ```
 
