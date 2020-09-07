@@ -1,0 +1,29 @@
+{
+  "name": "twittalize",
+  "version": "1.0.0",
+  "description": "Twitter follow-back analysis tool",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scarger/twittalize.git"
+  },
+  "keywords": [
+    "twitter",
+    "analysis",
+    "follow",
+    "back",
+    "followers"
+  ],
+  "author": "scarger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scarger/twittalize/issues"
+  },
+  "homepage": "https://github.com/scarger/twittalize#readme",
+  "dependencies": {
+    "puppeteer-core": "^5.2.1"
+  }
+}
