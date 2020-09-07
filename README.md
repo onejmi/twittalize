@@ -18,4 +18,6 @@ module.exports = {
 ```
 
 <br><br>
+This tool performs web scraping. USE AT YOUR OWN RISK ⚠
+
 PR always appreciated.
