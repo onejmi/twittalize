@@ -19,6 +19,6 @@ module.exports = {
 
 <br><br>
 This tool performs web scraping (without the use of the official Twitter API). 
-**USE AT YOUR OWN RISK** ⚠
+⚠ **USE AT YOUR OWN RISK** ⚠
 
 PR always appreciated.
