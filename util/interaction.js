@@ -36,11 +36,12 @@ async function extractUsers(page, target, browser) {
 
 async function loadUsers(scrollPos, bodyHeight, page, browser) {
     const visited = []
+    const results = []
     while(scrollPos < (await page.evaluate(_ => document.body.scrollHeight))) {
         await page.waitFor(4500)
         const userSelector = 'div[data-testid=UserCell]'
         const users = await page.$$(userSelector)
-        await addProspects(users, browser, page, visited)
+        await addProspects(users, browser, page, visited, results)
         console.log('current scroll = ' + await page.evaluate(_ => window.scrollY))
         await page.evaluate(scrollPosition => {
             window.scrollBy(0, scrollPosition);
@@ -48,15 +49,14 @@ async function loadUsers(scrollPos, bodyHeight, page, browser) {
         scrollPos += bodyHeight
         console.log("new scroll position = " + scrollPos)
     }
-    const result = visited.map((v) => 'https://twitter.com' + v)
     try {  
-        await fs.writeFile('results.json', JSON.stringify(result, null, '\t'))
+        await fs.writeFile('results.json', JSON.stringify(results, null, '\t'))
     } catch(e) {
         console.log('Failed to save result!')
     }
 }
 
-async function addProspects(users, browser, page, visited) {
+async function addProspects(users, browser, page, visited, results) {
     for(user of users) {
         const url = await user.$eval('a', e => e.getAttribute('href'))
         if(visited.includes(url)) continue
@@ -81,7 +81,9 @@ async function addProspects(users, browser, page, visited) {
         }
         const popScore = (followers / following) * 100
         if(popScore <= threshold) {
-            console.log('adding https://twitter.com' + url)
+            const profileLink = 'https://twitter.com' + url
+            console.log('adding ' + profileLink)
+            results.push(profileLink)
         }
         await userPage.waitFor(1000)
         await userPage.close()
