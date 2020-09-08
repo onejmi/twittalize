@@ -50,7 +50,7 @@ async function loadUsers(scrollPos, bodyHeight, page, browser) {
     }
     const result = visited.map((v) => 'https://twitter.com' + v)
     try {  
-        await fs.writeFile('results.json', JSON.stringify(result))
+        await fs.writeFile('results.json', JSON.stringify(result, null, '\t'))
     } catch(e) {
         console.log('Failed to save result!')
     }
