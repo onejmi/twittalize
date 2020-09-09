@@ -1,4 +1,4 @@
-# Twittalize 🧪- Follow filter to save precious time!
+# Twittalize 🧪 - Follow filter to save precious time!
 
 Currently does **not** do advanced follow-back analysis. Works off of ```following:follower``` ratio. 
 
