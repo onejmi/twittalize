@@ -2,7 +2,7 @@
 
 Currently does **not** do advanced follow-back analysis. Works off of ```following:follower``` ratio. 
 
-Results are saved in ```results.json```
+Results are saved in ```results.json``` file.
 
 Remember to install the dependencies before starting: ```npm install```
 
